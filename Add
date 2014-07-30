@@ -1,0 +1,64 @@
+package com.example.ruminate.add;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+
+public class Add extends Activity {
+
+
+    Button add;
+    EditText op1,op2;
+    TextView ans;
+    Integer n1,n2,sum;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add);
+
+        Button add = (Button) findViewById(R.id.add);
+        final EditText op1 = (EditText) findViewById(R.id.op1);
+        final EditText op2 = (EditText) findViewById(R.id.op2);
+        final TextView ans = (TextView) findViewById(R.id.ans);
+        add.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                int n1 = new Integer(op1.getText().toString());
+                int n2 = new Integer(op2.getText().toString());
+                int sum = (n1 + n2);
+                ans.setText(Integer.toString(sum));
+            }
+        });
+
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.add, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
